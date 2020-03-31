@@ -40,80 +40,6 @@
       background-color: var(--whiteblue) !important;
     }
 
-    /* **************** */
-    /*   HOME HEADING   */
-    /* **************** */
-    header{position: relative;} 
-    header>img{width: 100%;}
-    header>div{ position: absolute; top: 20%; text-align: center; width: 40%; margin: 0 30%;}
-    header>div>h1{ margin: 0; font-size: 4.5vw; font-family: var(--font2); color: var(--purple); text-shadow: 0 0 10px rgba(0,0,0,1); }
-    header>div>img{width: 14vw;}
-    header>div>a{font-size: 1em; border: 3px solid var(--blue);display:block; padding: 10px 0; margin: 10px auto 0; width: 28vw; text-align: center; border-radius: 10px; color: white; background-color: var(--blue);}
-    header>div>a:hover{text-decoration: none; background-color: white; color: var(--blue); transition: 0.3s ease-in-out;}
-    header>div>a:before {
-        position: absolute;
-        bottom: 10px;
-        left: 0;
-        right: 0;
-        /* margin auto will set the starting point at center */
-        margin: auto;
-        width: 0%;
-        content: '.';
-        color: transparent;
-        background: var(--blue);
-        height: 2px;
-      }
-  
-      header>div>a:hover:before {
-        width: 22%;
-        transition: 0.4s ease-out;
-      }
-
-
-      /* **************** */
-      /*   HOME CAROUSEL  */
-      /* **************** */
-      #carousel-quote{background-color: var(--whiteblue); margin-top: 0;padding: 100px 0;}
-      .carousel-indicators { position: static;}
-      .carousel-indicators li{background-color: var(--blue);}
-      
-      .carousel-caption{
-        position: static;
-      }
-      .carousel-indicators .active{background-color: var(--purple);}
-      .carousel-caption.d-md-block blockquote{
-        font-family: var(--font2);
-        font-size: 3em;
-        display: inline-block;
-        text-align: left;
-        color: black;
-      }
-      .carousel-caption.d-md-block blockquote cite{
-        text-align: right;
-        display: block;
-        font-size: 0.8em;
-      }
-      @media (max-width: 1024px){
-        header{
-          transform: scale(1.5);
-          transform-origin: top center;
-          height: 781px;
-          overflow-x: hidden;
-        }
-      }
-      @media (max-width: 769px){
-        header{height: 600px;}
-        header>div{top: 10%; }
-        #carousel-quote{padding: 20px 0}
-        .carousel-caption.d-md-block blockquote{font-size: 2em;}
-      }
-      @media (max-width: 414px){
-        header{height: 300px}
-        header>div>a {font-size: 12px;padding: 3px 0;}
-        .carousel-caption.d-md-block blockquote {
-          font-size: 18px;
-        }
-      }
   </style>
 </head>
 
@@ -157,52 +83,13 @@
     </div>
   </nav>
   <!-- ****************************************** END NAV BAR ****************************************** -->
-  <main class="home-container">
-    <header>
-      <img src="assets/images/homepage-laptop.png" alt="">
-      <div>
-        <img src="assets/images/Lotus Logo with Group name.png" alt="">
-        <h1>Your Education <br>Your Future</h1>
-        <a href="">SIGN UP NOW</a>
-      </div>
-      
-      
-    </header>
-    <div id="carousel-quote" class="carousel slide" data-ride="carousel">
-    
-      <div class="carousel-inner">
-        <div class="carousel-item active" data-interval="500">
-          <div class="carousel-caption d-md-block">
-            <blockquote>"If you can not explain it simply,<br>
-              you don't understand it well enough."<br><cite>-from Albert Einstein</cite>
-            </blockquote> 
-          </div>
-        </div>
-        <div class="carousel-item" data-interval="500">
-          <div class="carousel-caption d-md-block">
-            <blockquote>"Education is the most powerful weapon <br> which you can use to change
-              the world." <br><cite>-from Nelson Mandela</cite>
-            </blockquote>
-          </div>
-        </div>
-        <div class="carousel-item" data-interval="500">
-          <div class="carousel-caption d-md-block">
-            <blockquote>"A quality education grants us the ability <br> to fight the war
-               on ignorance and poverty. " <br><cite>-from Charles Rangel</cite>
-            </blockquote>
-          </div>
-        </div>
-      </div>
-      <ol class="carousel-indicators">
-        <li data-target="#carousel-quote" data-slide-to="0" class="active"></li>
-        <li data-target="#carousel-quote" data-slide-to="1"></li>
-        <li data-target="#carousel-quote" data-slide-to="2"></li>
-      </ol>
-    </div>
-  </main>
   
 
 
+
+
+
+  
 
   <!-- ****************************************** FOOTER ****************************************** -->
   <footer>
