@@ -23,7 +23,7 @@
   <!-- nav bar and footer external css -->
   <link rel="stylesheet" href="assets/css/navbar and footer.css">
 
-  <title>Home Page</title>
+  <title>Generate Random Number Page</title>
   <style type="text/css">
     @import url(https://fonts.googleapis.com/css?family=Raleway:400,900);
 
@@ -39,7 +39,48 @@
       font-family: var(--font1);
       background-color: var(--whiteblue) !important;
     }
+    main{
+      text-align: center;
+    }
+    h1{
+      margin-top: 1em;
+      font-family: var(--font2);
+      text-align: center;
+      font-weight: bold;
+    }
+    h1::after{
+      display: block;
+      height: 2px;
+      background-color: var(--blue);
+      width: 25%;
+      content: '';
+      margin: 10px auto;
+    }
+    label, input{
+      margin: 10px 0;
+    }
 
+    #submit{position: relative; cursor: pointer; font-size: 1em; border: 3px solid var(--blue);display:block; padding: 10px 0; margin: 10px auto 0; width: 28vw; text-align: center; border-radius: 10px; color: white; background-color: var(--blue);}
+    #submit:hover{text-decoration: none; background-color: white; color: var(--blue); transition: 0.3s ease-in-out;}
+    
+    #submit:before {
+        position: absolute;
+        bottom: 8px;
+        left: 0;
+        right: 0;
+        /* margin auto will set the starting point at center */
+        margin: auto;
+        width: 0%;
+        content: '.';
+        color: transparent;
+        background: var(--blue);
+        height: 2px;
+      }
+  
+    #submit:hover:before {
+      width: 80px;
+      transition: 0.4s ease-out;
+    }
   </style>
 </head>
 
@@ -69,7 +110,7 @@
             Tools
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="generate-random-numbers.html">Generate Random Numbers</a>
+            <a class="dropdown-item" href="generate.html">Generate Random Numbers</a>
             <a class="dropdown-item" href="bin-hex-dex.html">Bin, Hex, Dex Converter</a>
             <a class="dropdown-item" href="check-difference.html">Check Difference</a>
           </div>
@@ -83,13 +124,60 @@
     </div>
   </nav>
   <!-- ****************************************** END NAV BAR ****************************************** -->
+  <main>
+    <h1>GENERATE RANDOM NUMBERS</h1>
+  <div>
+    <div>
+      <label for="num">Amount of numbers to generate</label><br>
+      <input type="text" id="num" placeholder="">
+    </div>
+    <div>
+      <label for="start">Each number will have a value in range between</label>
+      <input type="text" id="from" placeholder="">
+      <label for="end">and</label>
+      <input type="text" id="to" placeholder="">
+    </div>
+    <div>
+      <label for="whole_number">Whole number</label>
+      <input type="radio" id="whole_number" name="num_type" checked>
+      <label for="decimal">Decimal</label>
+      <input type="radio" id="decimal" name="num_type">
+    </div>
+    <button type="submit" id="submit">SUBMIT</button>
+  </div>
+
+  <textarea style="margin-top: 15px;" name="" id="output" cols="70" rows="8"></textarea>
+
+
+  <script>
+    document.getElementById("submit").onclick = () => 
+    {
+      let amount = document.getElementById("num").value
+      let from = parseInt(document.getElementById("from").value)
+      let to = parseInt(document.getElementById("to").value)
+      if (to < from)
+        alert("The start number has to be less than the end number. Please re-input!")
+      else if (document.getElementById("whole_number").checked) {
+        document.getElementById("output").innerHTML = "";
+        for (let i = 0; i < amount; i++) {
+          document.getElementById("output").append(randomWholeNumber(from, to) + ' ');
+        }
+      } else if (document.getElementById("decimal").checked) {
+        document.getElementById("output").innerHTML = "";
+        for (let i = 0; i < amount; i++) {
+          document.getElementById("output").append(randomDecimal(from, to) + ' ');
+        }
+      }
+    }
+
+    randomWholeNumber = (min, max) => {return Math.floor(Math.random() * (Math.floor(max) - Math.ceil(min) + 1) + Math.ceil(min));}
+    randomDecimal = (min, max) => {return (Math.random() * (max - min + 1) + min).toFixed(2);}
+
+  </script>
+  </main>
   
 
 
-
-
-
-  
 
   <!-- ****************************************** FOOTER ****************************************** -->
   <footer>
