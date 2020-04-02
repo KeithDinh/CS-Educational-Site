@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- import bootstrap 4 CDN -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+  </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+  </script>
+  <!-- import font awesome CDN -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+
+  <!-- nav bar and footer external css -->
+  <link rel="stylesheet" href="assets/css/navbar and footer.css">
+
+  <title>Profile</title>
+  <style type="text/css">
+    @import url(https://fonts.googleapis.com/css?family=Raleway:400,900);
+
+    :root {
+      --font1: 'Raleway', sans-serif;
+      --font2: 'Playfair Display', serif;
+      --purple: #E5BBFF;
+      --blue: #0088CC;
+      --whiteblue: #F6F6FF;
+    }
+
+    body {
+      font-family: var(--font1);
+      background-color: var(--whiteblue) !important;
+      position: relative;
+      height: 100vh;
+    }
+    h1 {
+      margin: 1em 0;
+      font-family: var(--font2);
+      text-align: center;
+      font-weight: bold;
+    }
+
+    h1::after {
+      display: block;
+      height: 2px;
+      background-color: var(--blue);
+      width: 60px;
+      content: '';
+      margin: 10px auto;
+    }
+    main{margin-bottom: 50px;}
+    .Button, .selected{position: relative; cursor: pointer; font-size: 1em; border: 3px solid var(--blue);display:block; padding: 10px 0; margin: 10px 60px; width: 200px; text-align: center; border-radius: 50px; color: white; background-color: var(--blue);}
+    .Button:hover, .selected{text-decoration: none; background-color: white; color: var(--blue); transition: 0.3s ease-in-out;}
+    
+    .Button:before, .selected:before {
+        position: absolute;
+        bottom: 8px;
+        left: 0;
+        right: 0;
+        /* margin auto will set the starting point at center */
+        margin: auto;
+        width: 0%;
+        content: '.';
+        color: transparent;
+        background: var(--blue);
+        height: 2px;
+      }
+  
+    .Button:hover:before, .selected:before {
+      width: 80px;
+      transition: 0.4s ease-out;
+    }
+
+    .form-Button{width: 120px !important; margin: 0 20px;}
+    hr{
+      height: 2px;
+      background-color: var(--blue);
+      border: none;
+      width: 50%;
+      margin: 40px auto;
+    }
+
+    .form-submit{
+      margin: 0 auto;
+      text-align: center;
+      width: 500px;
+    }
+    @media (max-width: 768px){
+      .form-submit{width: 100%; padding: 0 20px;}
+    }
+    label{display: block;}
+    textarea{width: 100%; background: rgba(0,0,0,0.1); margin-bottom: 20px;}
+    .hide{
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ****************************************** NAV BAR ****************************************** -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <a class="navbar-brand" href="index.html"><img width="35" src="assets/images/Lotus Logo.png" alt=""></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="about.html">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="resources.html">Resources</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false" style="cursor: context-menu">
+            Tools
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="generate-random-numbers.html">Generate Random Numbers</a>
+            <a class="dropdown-item" href="bin-hex-dex.html">Bin, Hex, Dex Converter</a>
+            <a class="dropdown-item" href="check-difference.html">Check Difference</a>
+          </div>
+        </li>
+      </ul>
+      <ul class="navbar-nav mr-right">
+        <li class="nav-item">
+          <a class="nav-link" href="Login.html">Log in</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!-- ****************************************** END NAV BAR ****************************************** -->
+  <main>
+    <h1>BIN, HEX, DEC CONVERTER</h1>
+
+    <!-- ***************************** BUTTON SWITCH ***************************** -->
+
+    <section style="display: flex; justify-content: center; flex-wrap: wrap;">
+      <button type="button" class="Button selected" id="convertButton1" onclick="switchingConverter(this)">Bin to Other Bases</button>
+      <button type="button" class="Button" id="convertButton2" onclick="switchingConverter(this)">Dec to Other Bases</button>
+      <button type="button" class="Button" id="convertButton3" onclick="switchingConverter(this)">Hex to Other Bases</button>
+    </section>
+    <hr>
+
+    <!-- ***************************** BIN FORM ***************************** -->
+
+    <div class="form-submit form-1" >
+      <label for="inputBinary">Enter Binary Number:</label>
+      <input type="text" id="inputBinary" style="width: 100%">
+      <div style="margin: 30px 0">
+        <button class="Button form-Button" id="convertBin" type="submit" style="float: left;">Convert</button>
+        <button class="Button form-Button" onclick="resetForm('form-1')" type="reset" style="float: right;"> Reset</button>
+        <div style="clear: both;"></div>
+      </div>
+
+      <label for="">Hexadecimal Result:</label>
+      <textarea style="margin-top: 15px;" name="" id="BinToHexOutput" rows="2" readonly></textarea>
+      
+      <label for="">Decimal Result:</label>
+      <textarea style="margin-top: 15px;" name="" id="BinToDecOutput" rows="2" readonly></textarea>
+    </div>
+    
+    <!-- ***************************** DEC FORM ***************************** -->
+
+    <div class="form-submit form-2 hide" style="width: 500px;">
+      <label for="inputBinary">Enter Decimal Number:</label>
+      <input type="number" id="inputDecimal" style="width: 100%">
+      <div style="margin: 30px 0">
+        <button class="Button form-Button" id="convertDec" type="submit" style="float: left;">Convert</button>
+        <button class="Button form-Button" onclick="resetForm('form-2')" type="reset" style="float: right;"> Reset</button>
+        <div style="clear: both;"></div>
+      </div>
+
+      <label for="">Hexadecimal Result:</label>
+      <textarea style="margin-top: 15px;" name="" id="DecToHexOutput" rows="2" readonly></textarea>
+      
+      <label for="">Binary Result:</label>
+      <textarea style="margin-top: 15px;" name="" id="DecToBinOutput" rows="2" readonly></textarea>
+    </div>
+    
+
+    <!-- ***************************** HEX FORM ***************************** -->
+
+    <div class="form-submit form-3 hide" style="width: 500px;">
+      <label for="inputBinary">Enter Hexadecimal Number:</label>
+      <input type="text" id="inputHexadecimal" style="width: 100%">
+      <div style="margin: 30px 0">
+        <button class="Button form-Button" id="convertHex" type="submit" style="float: left;">Convert</button>
+        <button class="Button form-Button" onclick="resetForm('form-3')" type="reset" style="float: right;"> Reset</button>
+        <div style="clear: both;"></div>
+      </div>
+
+      <label for="">Binary Result:</label>
+      <textarea style="margin-top: 15px;" name="" id="HexToBinOutput" rows="2" readonly></textarea>
+      
+      <label for="">Decimal Result:</label>
+      <textarea style="margin-top: 15px;" name="" id="HexToDecOutput" rows="2" readonly></textarea>
+    </div>
+  </main>
+
+  <script>
+    BinToDec = (StringOfNums) => parseInt(StringOfNums, 2).toString(10);
+    BinToHex = (StringOfNums) => parseInt(StringOfNums, 2).toString(16);
+    DecToBin = (StringOfNums) => parseInt(StringOfNums, 10).toString(2);
+    DecToHex = (StringOfNums) => parseInt(StringOfNums, 10).toString(16);
+    HexToBin = (StringOfNums) => parseInt(StringOfNums, 16).toString(2);
+    HexToDec = (StringOfNums) => parseInt(StringOfNums, 16).toString(10);
+    resetForm = (className) => {
+      document.querySelector("."+className+" input").value="";
+
+      document.querySelectorAll("."+className+ " textarea").forEach(element => element.innerHTML="");
+    };
+    switchingConverter = (element) => {
+      // get all button and remove the active state
+      document.querySelectorAll("section button").forEach(eachButton => eachButton.classList.remove("selected"));
+
+      // add active state to the current element (this)
+      element.classList.add("class","selected");
+
+      // .slice(-1): Get the last character
+      let formClassName = "form-"+element.id.slice(-1);
+
+      // get all form and hide all
+      document.querySelectorAll(".form-submit").forEach(eachForm => eachForm.classList.add("hide"));
+
+      // get the right form and display it
+      document.getElementsByClassName(formClassName)[0].classList.remove("hide");
+
+    }
+
+
+    // ***************************** BIN ONCLICK *****************************
+    document.getElementById("convertBin").onclick = ()=> 
+    {
+      let bin=document.getElementById("inputBinary").value;
+      if(bin.search(/^[10]+$/) != -1)
+      {
+
+        document.getElementById("BinToHexOutput").innerHTML = BinToHex(bin);
+        document.getElementById("BinToDecOutput").innerHTML = BinToDec(bin);
+      }
+      else alert("The number is not a binary number");
+    };
+
+
+
+    // ***************************** DEC ONCLICK *****************************
+    document.getElementById("convertDec").onclick = ()=> 
+    {
+      let dec=parseInt(document.getElementById("inputDecimal").value);
+      if(Number.isInteger(dec))
+      {
+        document.getElementById("DecToHexOutput").innerHTML = DecToHex(dec);
+        document.getElementById("DecToBinOutput").innerHTML = DecToBin(dec);
+      }
+      else alert("The number is not a decimal number");
+    };
+
+
+
+    // ***************************** HEX ONCLICK *****************************
+    document.getElementById("convertHex").onclick = ()=> 
+    {
+      let hex=document.getElementById("inputHexadecimal").value;
+      if(parseInt(hex,16).toString(16) === hex.toLowerCase())
+      {
+
+        document.getElementById("HexToBinOutput").innerHTML = HexToBin(hex);
+        document.getElementById("HexToDecOutput").innerHTML = HexToDec(hex);
+      }
+      else alert("The number is not a hexadecimal number");
+    };
+  </script>
+
+
+
+  <!-- ****************************************** FOOTER ****************************************** -->
+  <footer>
+    <div style="text-align: center; padding-top: 25px; margin-bottom: 1rem;">
+      <a href="https://uh.edu/"><img src="assets/images/UH Logo.png" width="50" alt=""></a>
+      <a href="index.html"><img src="assets/images/Lotus Logo.png" width="50" alt=""></a>
+    </div>
+    <div class="footer-copyright">
+      <p>CYGK Education <br> Houston, Texas 77204 <br> (713 743 - 2255</p>
+      <p>Copyright &copy; 2020 CYGK Education. All rights reserved. <br>Built by <em>The CYGK Group</em> </p>
+    </div>
+    <div style="color: white; font-size: 24px; text-align: center;padding-top: 27px; ">
+      <a href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.github.com/"><i class="fab fa-github"></i></a>
+      <a href="https://www.twitter.com/"><i class="fab fa-twitter"></i></a>
+      <a href="https://www.linkedin.com/"><i class="fab fa-linkedin"></i></a>
+      <a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
+    </div>
+
+  </footer>
+</body>
+
+</html>
