@@ -23,7 +23,7 @@
   <!-- nav bar and footer external css -->
   <link rel="stylesheet" href="assets/css/navbar and footer.css">
 
-  <title>Generate Random Number Page</title>
+  <title>Login Page</title>
   <style type="text/css">
     @import url(https://fonts.googleapis.com/css?family=Raleway:400,900);
 
@@ -38,49 +38,41 @@
     body {
       font-family: var(--font1);
       background-color: var(--whiteblue) !important;
+      position: relative;
+      height: 100vh;
     }
-    main{
-      text-align: center;
-    }
-    h1{
-      margin-top: 1em;
+    main{margin-bottom: 50px;}
+    footer{position: absolute; width: 100%; bottom: 0;}
+
+    h1 {
+      margin: 1em 0;
       font-family: var(--font2);
       text-align: center;
       font-weight: bold;
     }
-    h1::after{
+
+    h1::after {
       display: block;
       height: 2px;
       background-color: var(--blue);
-      width: 25%;
+      width: 60px;
       content: '';
       margin: 10px auto;
     }
-    label, input{
-      margin: 10px 0;
+
+    input {
+      margin: 3px 0;
+      display: block;
+      width: 100%;
+      font-size: 15px;
     }
 
-    #submit{position: relative; cursor: pointer; font-size: 1em; border: 3px solid var(--blue);display:block; padding: 10px 0; margin: 10px auto 0; width: 28vw; text-align: center; border-radius: 10px; color: white; background-color: var(--blue);}
-    #submit:hover{text-decoration: none; background-color: white; color: var(--blue); transition: 0.3s ease-in-out;}
-    
-    #submit:before {
-        position: absolute;
-        bottom: 8px;
-        left: 0;
-        right: 0;
-        /* margin auto will set the starting point at center */
-        margin: auto;
-        width: 0%;
-        content: '.';
-        color: transparent;
-        background: var(--blue);
-        height: 2px;
-      }
-  
-    #submit:hover:before {
-      width: 80px;
-      transition: 0.4s ease-out;
-    }
+    .profileImage{margin: 10px 20px;}
+    table{text-align: center; width: 350px;}
+    table input{background-color: rgba(0,0,0,0.04);}
+    #uploadButton{ width: 100%; margin-top: 10px;}
+    .hide{display: none;}
+    @media (max-width:767px){footer{position:static;}}
   </style>
 </head>
 
@@ -110,7 +102,7 @@
             Tools
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="generate.html">Generate Random Numbers</a>
+            <a class="dropdown-item" href="generate-random-numbers.html">Generate Random Numbers</a>
             <a class="dropdown-item" href="bin-hex-dex.html">Bin, Hex, Dex Converter</a>
             <a class="dropdown-item" href="check-difference.html">Check Difference</a>
           </div>
@@ -125,57 +117,114 @@
   </nav>
   <!-- ****************************************** END NAV BAR ****************************************** -->
   <main>
-    <h1>GENERATE RANDOM NUMBERS</h1>
-  <div>
-    <div>
-      <label for="num">Amount of numbers to generate</label><br>
-      <input type="text" id="num" placeholder="">
-    </div>
-    <div>
-      <label for="start">Each number will have a value in range between</label>
-      <input type="text" id="from" placeholder="">
-      <label for="end">and</label>
-      <input type="text" id="to" placeholder="">
-    </div>
-    <div>
-      <label for="whole_number">Whole number</label>
-      <input type="radio" id="whole_number" name="num_type" checked>
-      <label for="decimal">Decimal</label>
-      <input type="radio" id="decimal" name="num_type">
-    </div>
-    <button type="submit" id="submit">SUBMIT</button>
-  </div>
+    <h1>Profile</h1>
+    <section style="display: flex; justify-content: center; flex-wrap: wrap;">
+      <div class="profileImage">
+        <img width="170" src="assets/images/User Logo.png" alt="">
+        <input type="file" id="imageFile" style="display: none" >
+        <button id="uploadButton" style="display:block;" name="button" value="Upload" onclick="uploadImage();">Upload</button>
+        <script>uploadImage = () => document.getElementById("imageFile").click()</script>
+      </div>
+      <table cellpadding="0">
+        <tr>
+          <td style="width: 100px;">
+            First Name:
+          </td>
+          <td colspan="3">
+            <input type="text" value="Doe" readonly>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Last Name:
+          </td>
+          <td colspan="3">
+            <input type="text" value="John" readonly>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Email:
+          </td>
+          <td colspan="3">
+            <input type="text" value="johndoe@gmail.com" readonly>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Phone:
+          </td>
+          <td colspan="3">
+            <input type="text" value="832-333-2222" readonly>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Address:
+          </td>
+          <td colspan="3">
+            <input type="text" value="832 Main St" readonly>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            City:
+          </td>
+          <td>
+            <input type="text" value="Houston" readonly>
+          </td>
+          <td style="width: 70px;">
+            State:
+          </td>
+          <td>
+            <input type="text" value="TX" readonly>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Zipcode:
+          </td>
+          <td>
+            <input type="text" value="8888" readonly>
+          </td>
+        </tr>
+        <tr >
+          <td colspan="4">
+            <button id="editButton" style="margin-top: 15px;">Edit Profile</button>
+            <button id="saveButton" class="hide" style="margin-top: 15px; text-align: center;">Save</button>
+        </td>
+        </tr>
+        <script>
+          document.getElementById("editButton").onclick= () =>{
+            let allInput = document.querySelectorAll("table input");
+            console.log(allInput)
+            for(let i=0; i < allInput.length; i++)
+            {
+              allInput[i].removeAttribute("readonly");
+              allInput[i].style.backgroundColor = "white";
+            }
 
-  <textarea style="margin-top: 15px;" name="" id="output" cols="70" rows="8"></textarea>
-
-
-  <script>
-    document.getElementById("submit").onclick = () => 
-    {
-      let amount = document.getElementById("num").value
-      let from = parseInt(document.getElementById("from").value)
-      let to = parseInt(document.getElementById("to").value)
-      if (to < from)
-        alert("The start number has to be less than the end number. Please re-input!")
-      else if (document.getElementById("whole_number").checked) {
-        document.getElementById("output").innerHTML = "";
-        for (let i = 0; i < amount; i++) {
-          document.getElementById("output").append(randomWholeNumber(from, to) + ' ');
-        }
-      } else if (document.getElementById("decimal").checked) {
-        document.getElementById("output").innerHTML = "";
-        for (let i = 0; i < amount; i++) {
-          document.getElementById("output").append(randomDecimal(from, to) + ' ');
-        }
-      }
-    }
-
-    randomWholeNumber = (min, max) => {return Math.floor(Math.random() * (Math.floor(max) - Math.ceil(min) + 1) + Math.ceil(min));}
-    randomDecimal = (min, max) => {return (Math.random() * (max - min + 1) + min).toFixed(2);}
-
-  </script>
+            // Show Save, Hide Edit
+            document.getElementById("editButton").setAttribute("class", "hide");
+            document.getElementById("saveButton").removeAttribute("class","hide");
+          }
+          document.getElementById("saveButton").onclick= () =>{
+            let allInput = document.querySelectorAll("table input");
+            console.log(allInput)
+            for(let i=0; i < allInput.length; i++)
+            {
+              allInput[i].setAttribute("readonly", true);
+              allInput[i].style.backgroundColor = "rgba(0,0,0,0.04)";
+            }
+            // Show Edit, Hide Save
+            document.getElementById("saveButton").setAttribute("class", "hide");
+            document.getElementById("editButton").removeAttribute("class","hide");  
+          }
+        </script>
+      </table>
+    </section>
   </main>
-  
+
 
 
 

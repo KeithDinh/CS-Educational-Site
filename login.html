@@ -35,16 +35,22 @@
       --whiteblue: #F6F6FF;
     }
 
-    body {
+     body {
       font-family: var(--font1);
       background-color: var(--whiteblue) !important;
+      position: relative;
+      height: 100vh;
     }
-
+    footer{
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+    }
     .login-form, .modal-content {
       border: 2px solid var(--blue);
       border-radius: 15px;
       width: 500px;
-      margin: 30px auto;
+      margin: 50px auto;
       padding: 0 40px 40px;
       background-color: white;
     }
@@ -114,6 +120,8 @@
         width: 80px;
         transition: 0.4s ease-out;
       }
+      @media (max-width:767px){footer{position:static;}}
+
   </style>
 </head>
 
@@ -151,29 +159,29 @@
       </ul>
       <ul class="navbar-nav mr-right">
         <li class="nav-item">
-          <a class="nav-link" href="Login.html">Login</a>
+          <a class="nav-link" href="Login.html">Log in</a>
         </li>
       </ul>
     </div>
   </nav>
   <!-- ****************************************** END NAV BAR ****************************************** -->
   <main>
-    <section class="login-form">
+    <section class="login-form" onsubmit="location.href='profile.html'">
       <h1>Log in</h1>
-
-      <label for="email">Email</label>
-      <input type="email">
-      <label for="password">Password</label>
-      <input type="password">
-
-      <button type="submit" class="submit">Sign in</button>
+      <form target="_blank" method="POST">
+        <label for="email" >Email</label>
+        <input type="email" required="required" value="johndoe@gmail.com" >
+        <label for="password">Password</label>
+        <input type="password"required="required" value="123456789" >
+        <button type="submit" class="submit" >Sign in</button>
+      </form>
       <a href="forgotpassword.html" type="button" data-toggle="modal" data-target="#forgotpasswordModal">Forgot Password?</a>
       <a href="signup.html" style="float: right;">Sign up</a>
       <div style="clear: both;"></div>
     </section>
 
 
-    <!-- Modal -->
+    <!-- Forgot Password Modal -->
     <div class="modal fade" id="forgotpasswordModal" tabindex="-1" role="dialog" aria-labelledby="forgotpasswordModalLabel"
       aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -184,16 +192,18 @@
             </button>
           </div>
           <div class="modal-body">
-            <h1>Forgot Password?</h1>
-
-            <label for="email">Email</label>
-            <input type="email">
-            <button type="submit" class="submit" data-dismiss="modal" data-toggle="modal" data-target="#success">Submit</button>
+            <h1 style="margin-top: 0;">Forgot Password?</h1>
+            <form action="">
+              <label for="email">Email</label>
+              <input type="email" required="required">
+              <button type="submit" class="submit" data-dismiss="modal" data-toggle="modal" data-target="#success">Submit</button>              
+            </form>
           </div>
         </div>
       </div>
     </div>
 
+    <!-- Success Mesage -->
     <div class="modal fade" id="success" tabindex="-1" role="dialog" aria-labelledby="success"
       aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -204,7 +214,8 @@
             </button>
           </div>
           <div class="modal-body">
-            <h1>Success!</h1>
+            <h1>Success! </h1>
+            <p style="text-align: center;">You will receive an email shortly!</p>
           </div>
         </div>
       </div>
