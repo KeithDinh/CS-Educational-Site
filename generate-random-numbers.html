@@ -128,14 +128,14 @@
     <h1>GENERATE RANDOM NUMBERS</h1>
   <div>
     <div>
-      <label for="num">Amount of numbers to generate</label><br>
-      <input type="text" id="num" placeholder="">
+      <label for="num">Amount of numbers to generate (Maximum: 10000 numbers)</label><br>
+      <input type="number" id="num" placeholder="" required="required">
     </div>
     <div>
       <label for="start">Each number will have a value in range between</label>
-      <input type="text" id="from" placeholder="">
+      <input type="number" id="from" placeholder="" required="required">
       <label for="end">and</label>
-      <input type="text" id="to" placeholder="">
+      <input type="number" id="to" placeholder="" required="required">
     </div>
     <div>
       <label for="whole_number">Whole number</label>
@@ -150,28 +150,38 @@
 
 
   <script>
+
+    randomWholeNumber = (min, max) => {return Math.floor(Math.random() * (Math.floor(max) - Math.ceil(min) + 1) + Math.ceil(min));}
+    randomDecimal = (min, max) => {return (Math.random() * (max - min + 1) + min).toFixed(2);}
     document.getElementById("submit").onclick = () => 
     {
-      let amount = document.getElementById("num").value
-      let from = parseInt(document.getElementById("from").value)
-      let to = parseInt(document.getElementById("to").value)
-      if (to < from)
-        alert("The start number has to be less than the end number. Please re-input!")
-      else if (document.getElementById("whole_number").checked) {
+      let [amount,from,to] = [document.getElementById("num").value,
+      parseInt(document.getElementById("from").value),
+      parseInt(document.getElementById("to").value)]
+
+      if(!amount || !from || !to)
+        alert("Please input number")
+      else if (to < from)
+        alert("The start number must be less than the end number. Please re-input!");
+      else if(amount > 10000 && amount <0)
+        alert("The amount of number must be in range 0 to 10000");
+      else if(to >  Math.pow(10,9) || from < -Math.pow(10,9))
+        alert("The range is restricted within -10e+9 to 10e+9")
+      else if (document.getElementById("whole_number").checked) 
+      {
         document.getElementById("output").innerHTML = "";
         for (let i = 0; i < amount; i++) {
           document.getElementById("output").append(randomWholeNumber(from, to) + ' ');
         }
-      } else if (document.getElementById("decimal").checked) {
+      } 
+      else if (document.getElementById("decimal").checked) 
+      {
         document.getElementById("output").innerHTML = "";
         for (let i = 0; i < amount; i++) {
           document.getElementById("output").append(randomDecimal(from, to) + ' ');
         }
       }
     }
-
-    randomWholeNumber = (min, max) => {return Math.floor(Math.random() * (Math.floor(max) - Math.ceil(min) + 1) + Math.ceil(min));}
-    randomDecimal = (min, max) => {return (Math.random() * (max - min + 1) + min).toFixed(2);}
 
   </script>
   </main>

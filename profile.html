@@ -23,7 +23,7 @@
   <!-- nav bar and footer external css -->
   <link rel="stylesheet" href="assets/css/navbar and footer.css">
 
-  <title>Login Page</title>
+  <title>Profile</title>
   <style type="text/css">
     @import url(https://fonts.googleapis.com/css?family=Raleway:400,900);
 
@@ -117,7 +117,7 @@
   </nav>
   <!-- ****************************************** END NAV BAR ****************************************** -->
   <main>
-    <h1>Profile</h1>
+    <h1>PROFILE</h1>
     <section style="display: flex; justify-content: center; flex-wrap: wrap;">
       <div class="profileImage">
         <img width="170" src="assets/images/User Logo.png" alt="">
@@ -205,8 +205,8 @@
             }
 
             // Show Save, Hide Edit
-            document.getElementById("editButton").setAttribute("class", "hide");
-            document.getElementById("saveButton").removeAttribute("class","hide");
+            document.getElementById("editButton").classList.add("hide");
+            document.getElementById("saveButton").classList.remove("hide");
           }
           document.getElementById("saveButton").onclick= () =>{
             let allInput = document.querySelectorAll("table input");
@@ -217,8 +217,8 @@
               allInput[i].style.backgroundColor = "rgba(0,0,0,0.04)";
             }
             // Show Edit, Hide Save
-            document.getElementById("saveButton").setAttribute("class", "hide");
-            document.getElementById("editButton").removeAttribute("class","hide");  
+            document.getElementById("saveButton").classList.add("hide");
+            document.getElementById("editButton").classList.remove("hide");
           }
         </script>
       </table>
