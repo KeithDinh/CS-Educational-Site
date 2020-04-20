@@ -189,18 +189,25 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-body">
+          <div class="modal-body" data-toggle="modal"  >
             <h2 style="margin-top: 0;">FORGOT PASSWORD?</h2>
-            <form action="">
+            <form class="forgot-form" action="">
               <label for="email">Email</label>
               <input type="email" required="required">
-              <button type="submit" class="submit" data-dismiss="modal" data-toggle="modal" data-target="#success">Submit</button>              
+              <button type="submit" class="submit" >Submit</button>              
             </form>
           </div>
         </div>
       </div>
     </div>
-
+    <script>
+      $('.forgot-form').on('submit', function(e) {
+          e.preventDefault(); 
+          $('#success').modal('show');
+          $('#forgotpasswordModal').modal('hide');
+            // window.location.href = "URL";
+      });
+    </script>
     <!-- Success Mesage -->
     <div class="modal fade" id="success" tabindex="-1" role="dialog" aria-labelledby="success"
       aria-hidden="true">
