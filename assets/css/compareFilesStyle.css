@@ -1,34 +1,33 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,900);
+
 :root {
-    --font1: 'Raleway', sans-serif;
-    --font2: 'Playfair Display', serif;
-    --blueTheme:#0088CC;
+  --font1: 'Raleway', sans-serif;
+  --font2: 'Playfair Display', serif;
+  --purple: #E5BBFF;
+  --blue: #0088CC;
+  --whiteblue: #F6F6FF;
 }
 
-hr.short {
-    display: block;
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
-    margin-left: 40%;
-    margin-right: 40%; 
-    align-items: center;
-    background-color:var(--blueTheme);
-    border-style: solid;
-    border-color:var(--blueTheme);
-
+body {
+  font-family: var(--font1);
+  background-color: var(--whiteblue) !important;
+  position: relative;
+  height: 100vh;
+}
+h1 {
+  margin: 1em 0;
+  font-family: var(--font2);
+  text-align: center;
+  font-weight: bold;
 }
 
-hr.long {
-    display: block;
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
-    margin-left: 15%;
-    margin-right: 15%; 
-    align-items: center;
-    background-color:var(--blueTheme);
-    border-style: solid;
-    border-color:var(--blueTheme);
-
+h1::after {
+  display: block;
+  height: 2px;
+  background-color: var(--blue);
+  width: 60px;
+  content: '';
+  margin: 10px auto;
 }
 
 h1 {
