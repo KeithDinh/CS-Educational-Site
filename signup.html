@@ -157,28 +157,43 @@
   </nav>
   <!-- ****************************************** END NAV BAR ****************************************** -->
   <main>
-    <section class="login-form">
+    <form action="" method="post" data-toggle="modal" class="login-form">
       <h1>SIGN UP</h1>
-
       <div>
         <div>
-          <label for="firsname">First Name</label>
-          <input type="text">
+          <label for="firsname" >First Name</label>
+          <input type="text" id="firsname" required>
         </div>
         <div>
-          <label for="lastname">Last Name</label>
-          <input type="text">
+          <label for="lastname" >Last Name</label>
+          <input type="text" id="lastname" required>
         </div>
       </div>
-      <label for="email">Email</label>
-      <input type="email">
-      <label for="password">Password</label>
-      <input type="password">
+      <label for="email" >Email</label>
+      <input type="email" id="email"  required>
+      <label for="password" >Password</label>
+      <input type="password" id="password" required>
+      <button type="submit" class="submit">Sign up</button>
+    </form>
+    <script>
 
-      <button type="submit" class="submit" data-toggle="modal" data-target="#success">Sign up</button>
-    </section>
+      $('.login-form').on('submit', function(e) {
+  
+          e.preventDefault(); 
 
-
+          const firstname = document.getElementById("firsname");
+          const lastname = document.getElementById("lastname");
+          const email = document.getElementById("email");
+          const password = document.getElementById("password");
+          isValid = firstname.checkValidity() && lastname.checkValidity() && email.checkValidity() && password.checkValidity();
+          console.log(isValid)
+          if(isValid) {
+            $('#success').modal('show');
+            // window.location.href = "URL";
+          }
+      });
+    </script>
+    
     <!-- Modal -->
     <div class="modal fade" id="success" tabindex="-1" role="dialog" aria-labelledby="successLabel"
       aria-hidden="true">
