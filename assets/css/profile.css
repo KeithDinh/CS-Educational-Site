@@ -1,0 +1,48 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,900);
+
+:root {
+  --font1: 'Raleway', sans-serif;
+  --font2: 'Playfair Display', serif;
+  --purple: #E5BBFF;
+  --blue: #0088CC;
+  --whiteblue: #F6F6FF;
+}
+
+body {
+  font-family: var(--font1);
+  background-color: var(--whiteblue) !important;
+  position: relative;
+  height: 100vh;
+}
+main{margin-bottom: 50px;}
+footer{position: absolute; width: 100%; bottom: 0;}
+
+h1 {
+  margin: 1em 0;
+  font-family: var(--font2);
+  text-align: center;
+  font-weight: bold;
+}
+
+h1::after {
+  display: block;
+  height: 2px;
+  background-color: var(--blue);
+  width: 60px;
+  content: '';
+  margin: 10px auto;
+}
+
+input {
+  margin: 3px 0;
+  display: block;
+  width: 100%;
+  font-size: 15px;
+}
+
+.profileImage{margin: 10px 20px;}
+table{text-align: center; width: 350px;}
+table input{background-color: rgba(0,0,0,0.04);}
+#uploadButton{ width: 100%; margin-top: 10px;}
+.hide{display: none;}
+@media (max-width:767px){footer{position:static;}}
