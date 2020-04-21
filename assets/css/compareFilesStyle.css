@@ -39,6 +39,7 @@ h2{
     display:grid;
     grid-template-columns: 50% 50%;
     align-items: center;
+    margin-bottom: 50px;
 }
 .grid-container textarea{
   width: 80%;
@@ -62,6 +63,7 @@ h2{
     overflow: auto;
     padding:2px;
     margin: 0 auto;
+    text-align: left;
 }
 
 .submit {
