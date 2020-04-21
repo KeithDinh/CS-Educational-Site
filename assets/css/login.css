@@ -8,20 +8,35 @@
   --whiteblue: #F6F6FF;
 }
 
-body {
+ body {
   font-family: var(--font1);
   background-color: var(--whiteblue) !important;
   position: relative;
   height: 100vh;
 }
-h1 {
-  margin: 1em 0;
+footer{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+main{overflow: hidden;}
+.login-form, .modal-content {
+  border: 2px solid var(--blue);
+  border-radius: 15px;
+  width: 500px;
+  margin: 50px auto;
+  padding: 0 40px 40px;
+  background-color: white;
+}
+
+h1,h2 {
+  margin-top: 1em;
   font-family: var(--font2);
   text-align: center;
   font-weight: bold;
 }
 
-h1::after {
+h1::after,h2::after  {
   display: block;
   height: 2px;
   background-color: var(--blue);
@@ -30,40 +45,12 @@ h1::after {
   margin: 10px auto;
 }
 
-h1 {text-align: center;}
-h2{
-  font-size: 2vw;
-}
-.grid-container {
-
-    display:grid;
-    grid-template-columns: 50% 50%;
-    align-items: center;
-    margin-bottom: 50px;
-}
-.grid-container textarea{
-  width: 80%;
-}
-.grid-item {
-    text-align:center;
-    padding:10px;
-}
-.result {
-    text-align: center;
-    font-family: var(--font1);
-    font-size:20px;
-}
-
-.editable {
-    font-family: var(--font2);
-    width: 80%;
-    height: 200px;
-    border: 1px solid #ccc;
-    resize: both;
-    overflow: auto;
-    padding:2px;
-    margin: 0 auto;
-    text-align: left;
+label,
+input {
+  margin: 10px 0;
+  display: block;
+  width: 100%;
+  font-size: 20px;
 }
 
 .submit {
@@ -73,7 +60,7 @@ h2{
   display: block;
   padding: 10px 0;
   margin: 40px auto 20px;
-  width: 150px;
+  width: 100%;
   text-align: center;
   border-radius: 10px;
   color: white;
@@ -89,19 +76,20 @@ h2{
 }
 
 .submit:before {
-  position: absolute;
-  bottom: 8px;
-  left: 0;
-  right: 0;
-  /* margin auto will set the starting point at center */
-  margin: auto;
-  width: 0%;
-  content: '.';
-  color: transparent;
-  background: var(--blue);
-  height: 2px;
-}
-.submit:hover:before {
-  width: 80px;
-  transition: 0.4s ease-out;
-}
+	position: absolute;
+	bottom: 8px;
+	left: 0;
+	right: 0;
+	/* margin auto will set the starting point at center */
+	margin: auto;
+	width: 0%;
+	content: '.';
+	color: transparent;
+	background: var(--blue);
+	height: 2px;
+  }
+  .submit:hover:before {
+	width: 80px;
+	transition: 0.4s ease-out;
+  }
+  @media (max-width:767px){footer{position:static;}}

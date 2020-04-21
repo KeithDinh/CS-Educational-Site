@@ -24,64 +24,7 @@
   <link rel="stylesheet" href="assets/css/navbar and footer.css">
 
   <title>Generate Random Number Page</title>
-  <style type="text/css">
-    @import url(https://fonts.googleapis.com/css?family=Raleway:400,900);
-
-    :root {
-      --font1: 'Raleway', sans-serif;
-      --font2: 'Playfair Display', serif;
-      --purple: #E5BBFF;
-      --blue: #0088CC;
-      --whiteblue: #F6F6FF;
-    }
-
-    body {
-      font-family: var(--font1);
-      background-color: var(--whiteblue) !important;
-    }
-    main{
-      text-align: center;
-    }
-    h1{
-      margin-top: 1em;
-      font-family: var(--font2);
-      text-align: center;
-      font-weight: bold;
-    }
-    h1::after{
-      display: block;
-      height: 2px;
-      background-color: var(--blue);
-      width: 25%;
-      content: '';
-      margin: 10px auto;
-    }
-    label, input{
-      margin: 10px 0;
-    }
-
-    #submit{position: relative; cursor: pointer; font-size: 1em; border: 3px solid var(--blue);display:block; padding: 10px 0; margin: 10px auto 0; width: 28vw; text-align: center; border-radius: 10px; color: white; background-color: var(--blue);}
-    #submit:hover{text-decoration: none; background-color: white; color: var(--blue); transition: 0.3s ease-in-out;}
-    
-    #submit:before {
-        position: absolute;
-        bottom: 8px;
-        left: 0;
-        right: 0;
-        /* margin auto will set the starting point at center */
-        margin: auto;
-        width: 0%;
-        content: '.';
-        color: transparent;
-        background: var(--blue);
-        height: 2px;
-      }
-  
-    #submit:hover:before {
-      width: 80px;
-      transition: 0.4s ease-out;
-    }
-  </style>
+  <link rel="stylesheet" href="assets/css/randomnum.css">
 </head>
 
 <body>
@@ -115,7 +58,7 @@
       </ul>
       <ul class="navbar-nav mr-right">
         <li class="nav-item">
-          <a class="nav-link" href="Login.html">Log in</a>
+          <a class="nav-link" href="login.html">Log in</a>
         </li>
       </ul>
     </div>
@@ -146,41 +89,7 @@
   <textarea style="margin-top: 15px;" name="" id="output" cols="70" rows="8"></textarea>
 
 
-  <script>
-
-    randomWholeNumber = (min, max) => {return Math.floor(Math.random() * (Math.floor(max) - Math.ceil(min) + 1) + Math.ceil(min));}
-    randomDecimal = (min, max) => {return (Math.random() * (max - min + 1) + min).toFixed(2);}
-    document.getElementById("submit").onclick = () => 
-    {
-      let [amount,from,to] = [document.getElementById("num").value,
-      parseInt(document.getElementById("from").value),
-      parseInt(document.getElementById("to").value)]
-
-      if(!amount || !from || !to)
-        alert("Please input number")
-      else if (to < from)
-        alert("The start number must be less than the end number. Please re-input!");
-      else if(amount > 10000 && amount <0)
-        alert("The amount of number must be in range 0 to 10000");
-      else if(to >  Math.pow(10,9) || from < -Math.pow(10,9))
-        alert("The range is restricted within -10e+9 to 10e+9")
-      else if (document.getElementById("whole_number").checked) 
-      {
-        document.getElementById("output").innerHTML = "";
-        for (let i = 0; i < amount; i++) {
-          document.getElementById("output").append(randomWholeNumber(from, to) + ' ');
-        }
-      } 
-      else if (document.getElementById("decimal").checked) 
-      {
-        document.getElementById("output").innerHTML = "";
-        for (let i = 0; i < amount; i++) {
-          document.getElementById("output").append(randomDecimal(from, to) + ' ');
-        }
-      }
-    }
-
-  </script>
+  <script src="assets/js/randomnum.js"></script>
   </main>
   
 

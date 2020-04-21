@@ -1,0 +1,90 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,900);
+
+:root {
+--font1: 'Raleway', sans-serif;
+--font2: 'Playfair Display', serif;
+--purple: #E5BBFF;
+--blue: #0088CC;
+--whiteblue: #F6F6FF;
+}
+
+body {
+font-family: var(--font1);
+background-color: var(--whiteblue) !important;
+}
+
+/* **************** */
+/*   HOME HEADING   */
+/* **************** */
+main{overflow: hidden;}
+header{position: relative;} 
+header>img{width: 100%;}
+header>div{ position: absolute; top: 12%; text-align: center; width: 40%; margin: 0 30%;}
+header>div>h1{ margin: 0; font-size: 5.5vw; font-family: var(--font2); color: var(--purple); text-shadow: 0 0 10px rgba(0,0,0,1); }
+header>div>img{width: 19vw;}
+header>div>a{font-size: 1em; border: 3px solid var(--blue);display:block; padding: 10px 0; margin: 10px auto 0; width: 28vw; text-align: center; border-radius: 10px; color: white; background-color: var(--blue);}
+header>div>a:hover{text-decoration: none; background-color: white; color: var(--blue); transition: 0.3s ease-in-out;}
+header>div>a:before {
+position: absolute;
+bottom: 10px;
+left: 0;  
+right: 0;
+/* margin auto will set the starting point at center */
+margin: auto;
+width: 0%;
+content: '.';
+color: transparent;
+background: var(--blue);
+height: 2px;
+}
+
+header>div>a:hover:before {
+width: 22%;
+transition: 0.4s ease-out;
+}
+
+
+/* **************** */
+/*   HOME CAROUSEL  */
+/* **************** */
+#carousel-quote{background-color: var(--whiteblue); margin-top: 0;padding: 100px 0;}
+.carousel-indicators { position: static;}
+.carousel-indicators li{background-color: rgb(0,0,0,0.2); width: 10px;height: 10px; border-radius: 100%; cursor: pointer;}
+
+.carousel-caption{
+position: static;
+}
+.carousel-indicators .active{background-color: var(--blue);}
+.carousel-caption.d-md-block blockquote{
+font-family: var(--font2);
+font-size: 3em;
+display: inline-block;
+text-align: left;
+color: black;
+}
+.carousel-caption.d-md-block blockquote cite{
+text-align: right;
+display: block;
+font-size: 0.8em;
+}
+@media (max-width: 1024px){
+header{
+  transform: scale(1.5);
+  transform-origin: top center;
+  height: 781px;
+  overflow-x: hidden;
+}
+}
+@media (max-width: 769px){
+header{height: 600px;}
+header>div{top: 6%; }
+#carousel-quote{padding: 20px 0}
+.carousel-caption.d-md-block blockquote{font-size: 2em;}
+}
+@media (max-width: 414px){
+header{height: 77vw}
+header>div>a {font-size: 12px;padding: 3px 0;}
+.carousel-caption.d-md-block blockquote {
+  font-size: 4vw;
+}
+}

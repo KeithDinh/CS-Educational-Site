@@ -24,84 +24,7 @@
   <link rel="stylesheet" href="assets/css/navbar and footer.css">
 
   <title>Profile</title>
-  <style type="text/css">
-    @import url(https://fonts.googleapis.com/css?family=Raleway:400,900);
-
-    :root {
-      --font1: 'Raleway', sans-serif;
-      --font2: 'Playfair Display', serif;
-      --purple: #E5BBFF;
-      --blue: #0088CC;
-      --whiteblue: #F6F6FF;
-    }
-
-    body {
-      font-family: var(--font1);
-      background-color: var(--whiteblue) !important;
-      position: relative;
-      height: 100vh;
-    }
-    h1 {
-      margin: 1em 0;
-      font-family: var(--font2);
-      text-align: center;
-      font-weight: bold;
-    }
-
-    h1::after {
-      display: block;
-      height: 2px;
-      background-color: var(--blue);
-      width: 60px;
-      content: '';
-      margin: 10px auto;
-    }
-    main{margin-bottom: 50px;}
-    .Button, .selected{position: relative; cursor: pointer; font-size: 1em; border: 3px solid var(--blue);display:block; padding: 10px 0; margin: 10px 60px; width: 200px; text-align: center; border-radius: 50px; color: white; background-color: var(--blue);}
-    .Button:hover, .selected{text-decoration: none; background-color: white; color: var(--blue); transition: 0.3s ease-in-out;}
-    
-    .Button:before, .selected:before {
-        position: absolute;
-        bottom: 8px;
-        left: 0;
-        right: 0;
-        /* margin auto will set the starting point at center */
-        margin: auto;
-        width: 0%;
-        content: '.';
-        color: transparent;
-        background: var(--blue);
-        height: 2px;
-      }
-  
-    .Button:hover:before, .selected:before {
-      width: 80px;
-      transition: 0.4s ease-out;
-    }
-
-    .form-Button{width: 120px !important; margin: 0 20px;}
-    hr{
-      height: 2px;
-      background-color: var(--blue);
-      border: none;
-      width: 50%;
-      margin: 40px auto;
-    }
-
-    .form-submit{
-      margin: 0 auto;
-      text-align: center;
-      width: 500px;
-    }
-    @media (max-width: 768px){
-      .form-submit{width: 100%; padding: 0 20px;}
-    }
-    label{display: block;}
-    textarea{width: 100%; background: rgba(0,0,0,0.1); margin-bottom: 20px;}
-    .hide{
-      display: none;
-    }
-  </style>
+  <link rel="stylesheet" href="assets/css/binhexdex.css">
 </head>
 
 <body>
@@ -135,7 +58,7 @@
       </ul>
       <ul class="navbar-nav mr-right">
         <li class="nav-item">
-          <a class="nav-link" href="Login.html">Log in</a>
+          <a class="nav-link" href="login.html">Log in</a>
         </li>
       </ul>
     </div>
@@ -209,79 +132,7 @@
     </div>
   </main>
 
-  <script>
-    BinToDec = (StringOfNums) => parseInt(StringOfNums, 2).toString(10);
-    BinToHex = (StringOfNums) => parseInt(StringOfNums, 2).toString(16);
-    DecToBin = (StringOfNums) => parseInt(StringOfNums, 10).toString(2);
-    DecToHex = (StringOfNums) => parseInt(StringOfNums, 10).toString(16);
-    HexToBin = (StringOfNums) => parseInt(StringOfNums, 16).toString(2);
-    HexToDec = (StringOfNums) => parseInt(StringOfNums, 16).toString(10);
-    resetForm = (className) => {
-      document.querySelector("."+className+" input").value="";
-
-      document.querySelectorAll("."+className+ " textarea").forEach(element => element.innerHTML="");
-    };
-    switchingConverter = (element) => {
-      // get all button and remove the active state
-      document.querySelectorAll("section button").forEach(eachButton => eachButton.classList.remove("selected"));
-
-      // add active state to the current element (this)
-      element.classList.add("class","selected");
-
-      // .slice(-1): Get the last character
-      let formClassName = "form-"+element.id.slice(-1);
-
-      // get all form and hide all
-      document.querySelectorAll(".form-submit").forEach(eachForm => eachForm.classList.add("hide"));
-
-      // get the right form and display it
-      document.getElementsByClassName(formClassName)[0].classList.remove("hide");
-
-    }
-
-
-    // ***************************** BIN ONCLICK *****************************
-    document.getElementById("convertBin").onclick = ()=> 
-    {
-      let bin=document.getElementById("inputBinary").value;
-      if(bin.search(/^[10]+$/) != -1)
-      {
-
-        document.getElementById("BinToHexOutput").innerHTML = BinToHex(bin);
-        document.getElementById("BinToDecOutput").innerHTML = BinToDec(bin);
-      }
-      else alert("The number is not a binary number");
-    };
-
-
-
-    // ***************************** DEC ONCLICK *****************************
-    document.getElementById("convertDec").onclick = ()=> 
-    {
-      let dec=parseInt(document.getElementById("inputDecimal").value);
-      if(Number.isInteger(dec))
-      {
-        document.getElementById("DecToHexOutput").innerHTML = DecToHex(dec);
-        document.getElementById("DecToBinOutput").innerHTML = DecToBin(dec);
-      }
-      else alert("The number is not a decimal number");
-    };
-
-
-
-    // ***************************** HEX ONCLICK *****************************
-    document.getElementById("convertHex").onclick = ()=> 
-    {
-      let hex=document.getElementById("inputHexadecimal").value;
-      if(parseInt(hex,16).toString(16) === hex.toLowerCase())
-      {
-
-        document.getElementById("HexToBinOutput").innerHTML = HexToBin(hex);
-        document.getElementById("HexToDecOutput").innerHTML = HexToDec(hex);
-      }
-      else alert("The number is not a hexadecimal number");
-    };
-  </script>
+  <script src="assets/js/binhexdex.js"></script>
 
 
 
