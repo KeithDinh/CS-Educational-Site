@@ -30,37 +30,22 @@ h1::after {
   margin: 10px auto;
 }
 
-h1 {
-    text-align: center;
-    
+h1 {text-align: center;}
+h2{
+  font-size: 2vw;
 }
 .grid-container {
+
     display:grid;
-    column-gap:30px;
-    padding:20px;
-    grid-template-columns: auto auto;
+    grid-template-columns: 50% 50%;
     align-items: center;
 }
-.grid-container-small-gap {
-    display:grid;
-    column-gap:10px;
-    padding:10px;
-    grid-template-columns: auto auto;
+.grid-container textarea{
+  width: 80%;
 }
 .grid-item {
     text-align:center;
     padding:10px;
-}
-.btn {
-    border:2 solid var(--blueTheme);
-    background-color:var(--blueTheme);
-    color:white;
-    padding:15px 50px;
-    font-size:16px;
-    cursor: pointer;
-    border-radius: 25px;
-    font-family: var(--font1);
-    font-weight: bold;
 }
 .result {
     text-align: center;
@@ -70,11 +55,51 @@ h1 {
 
 .editable {
     font-family: var(--font2);
-    width: 400px;
+    width: 80%;
     height: 200px;
     border: 1px solid #ccc;
     resize: both;
     overflow: auto;
     padding:2px;
-    
-  }
+    margin: 0 auto;
+}
+
+.submit {
+  cursor: pointer;
+  font-size: 1em;
+  border: 3px solid var(--blue);
+  display: block;
+  padding: 10px 0;
+  margin: 40px auto 20px;
+  width: 150px;
+  text-align: center;
+  border-radius: 10px;
+  color: white;
+  background-color: var(--blue);
+  position: relative;
+}
+
+.submit:hover {
+  text-decoration: none;
+  background-color: white;
+  color: var(--blue);
+  transition: 0.3s ease-in-out;
+}
+
+.submit:before {
+  position: absolute;
+  bottom: 8px;
+  left: 0;
+  right: 0;
+  /* margin auto will set the starting point at center */
+  margin: auto;
+  width: 0%;
+  content: '.';
+  color: transparent;
+  background: var(--blue);
+  height: 2px;
+}
+.submit:hover:before {
+  width: 80px;
+  transition: 0.4s ease-out;
+}

@@ -63,37 +63,45 @@
     </div>
   </nav>
   <!-- ****************************************** END NAV BAR ****************************************** -->
+
+
     <h1>CHECK DIFFERENT</h1>
     <div class="grid-container">
-        <div class="grid-item"> Original File </div>
-        <div class="grid-item"> File to be Compared </div>
-        <div class="grid-item"> 
+        <div class="grid-item">
+
+         <h2>Original File</h2>
             <!-- only allow text/plain file -->
             <input type="file" id="file1" accept="text/plain" style="display:none;"> 
-            <button class="btn" id="uploadFileBtn1" value="Upload" onclick="uploadThisFile();">UPLOAD</button> 
+            <button class="btn submit" id="uploadFileBtn1" value="Upload" onclick="uploadThisFile();">UPLOAD</button> 
             <p id="nameOfFile1" ></p>
-        </div>
-        <div class="grid-item"> 
+           <textarea name="content-of-file1" id="content1" cols="60" rows="12"></textarea> </div>
+        <div class="grid-item" >
+        <h2>File to be Compared</h2>
              <!-- only allow text/plain file -->
             <input type="file" id="file2" accept="text/plain" style="display:none;"> 
-            <button class="btn" id="uploadFileBtn2" value="Upload" onclick="uploadThisFile();">UPLOAD</button> 
+            <button class="btn submit" id="uploadFileBtn2" value="Upload" onclick="uploadThisFile();">UPLOAD</button> 
             <p id="nameOfFile2"></p>
-        </div>
-        <div class="grid-item" > <textarea name="content-of-file1" id="content1" cols="60" rows="12"></textarea> </div>
-        <div class="grid-item" > <textarea name="content-of-file2" id="content2" cols="60" rows="12"></textarea></div>
+             <textarea name="content-of-file2" id="content2" cols="60" rows="12"></textarea></div>
     </div>
  
     <div class="result" style="text-align: center;"> 
-        <button class="btn" id="compare" value="CompareFiles" onclick="compareFiles();">COMPARE</button> 
-       <p> <span>DIFFERENT RESULT:</span><span id="result"></span></p> 
+        <button class="btn submit" id="compare" value="CompareFiles" onclick="compareFiles();">COMPARE</button> 
+        <p style="margin: 1rem 0 0;"> <span>DIFFERENT RESULT:</span><span id="result"></span></p> 
     </div>
 
     <div class="grid-container">
-        <div class="grid-item" id="length1"></div>
-        <div class="grid-item" id="length2"></div>
-        <div class="grid-item  editable" contenteditable="true" id="str1"></div>
-        <div class="grid-item  editable" contenteditable="true" id="str2"></div>
+        <div class="grid-item" >
+          <div  id="length1" style="height: 38px"></div>
+          <div class="editable" contenteditable="true" id="str1"></div>
+
+        </div>
+        <div class="grid-item">
+          <div  id="length2" style="height: 38px"></div>
+          <div class="editable" contenteditable="true" id="str2"></div>
+        </div>
     </div>
+
+
     <!-- ****************************************** FOOTER ****************************************** -->
   <footer>
     <div style="text-align: center; padding-top: 25px; margin-bottom: 1rem;">
@@ -149,7 +157,7 @@
     //validate uploaded file's size
     function validateFileSize(fileSize){
         if(fileSize > MAX_SIZE_ALLOWED) {
-		alert('Error : Exceeded size ' + MAX_SIZE_ALLOWED + " bytes");
+		alert('Error : Exceeded size ' + MAX_SIZE_ALLOWED + " max bytes");
 		return 0;
 	    }
         return 1;
