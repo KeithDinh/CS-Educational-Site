@@ -89,3 +89,4 @@ input {
   width: 80px;
   transition: 0.4s ease-out;
 }
+@media (max-width:767px){.login-form, .modal-content {width: 95%;}}

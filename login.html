@@ -65,7 +65,7 @@
   </nav>
   <!-- ****************************************** END NAV BAR ****************************************** -->
   <main>
-    <section class="login-form" onsubmit="location.href='profile.html'">
+    <section class="login-form" onsubmit="return redirect()">
       <h1>LOG IN</h1>
       <form target="_blank" method="POST">
         <label for="email" >Email</label>
@@ -78,6 +78,11 @@
       <a href="signup.html" style="float: right;">Sign up</a>
       <div style="clear: both;"></div>
     </section>
+    <script>
+      redirect = () => {
+        document.location.href='profile.html'
+      }
+    </script>
 
 
     <!-- Forgot Password Modal -->
