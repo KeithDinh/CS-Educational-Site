@@ -93,3 +93,4 @@ input {
 	transition: 0.4s ease-out;
   }
   @media (max-width:767px){footer{position:static;}}
+  @media (max-width:767px){.login-form, .modal-content {width: 95%;}}
